@@ -46,11 +46,11 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/users/auth/**").permitAll()  // Allow signup and login without authentication
+                        .requestMatchers("/").permitAll()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()  // Allow Swagger UI and API docs without authentication
                         .anyRequest().authenticated()  // Secure all other endpoints
                 )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)  // Make sure JWT filter is applied
-                ; // Correct usage for HTTP Basic Authentication
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

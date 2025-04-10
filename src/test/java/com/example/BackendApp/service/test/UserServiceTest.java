@@ -74,7 +74,7 @@ class UserServiceTest {
         when(passwordEncoder.encode("abcd1234")).thenReturn("hashedPassword");
         when(userRepository.save(any(User.class))).thenReturn(testUser);
 
-        User createdUser = userService.register(testUser);
+        User createdUser = userService.createUser(testUser);
 
         assertEquals(testUser, createdUser);
         assertEquals("hashedPassword", testUser.getPassword());
