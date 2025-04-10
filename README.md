@@ -74,7 +74,7 @@ http://localhost:8080/v3/api-docs
 and download the postman collection and import it into your postman.
 
 ## API Endpoints
-### User Endpoints
+### Endpoints
 - **POST** `/api/auth/register`: Register a new user.
 - **POST** `/api/auth/login`: Authenticate a user and receive a JWT token.
 - **GET** `/api/users/user_name`: Get the specific user details by username.
